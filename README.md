@@ -43,3 +43,8 @@ WASM mode (browser inference, low-resource laptops)
 ```bash
 MODE=wasm ./start.sh
 ```
+## Demo Images
+<img src="https://drive.google.com/uc?export=view&id=115lmaqdG-649Ic5SgRDbdqbaZwuKgySW" width="400"/>
+<img src="https://drive.google.com/uc?export=view&id=1tJ5Huq4MIikSQe9l8xzU96MopXYEiG_7" width="400"/>
+<img src="https://drive.google.com/uc?export=view&id=16ZxxTlJD8ukgLXw21W7Rre2xjI7IRTAt" width="400"/>
+
