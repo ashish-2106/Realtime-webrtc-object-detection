@@ -1,0 +1,22 @@
+services:
+  frontend:
+    build: ./frontend
+    environment:
+      - MODE=server
+      - SERVER_WS_URL=ws://server:8000/ws
+      - METRICS_POST_URL=http://server:8000/metrics/update
+      - METRICS_GET_URL=http://server:8000/metrics
+    ports:
+      - "3000:80"
+    depends_on:
+      - server
+    volumes:
+      - ./models:/usr/share/nginx/html/models:ro
+
+  server:
+    build: ./server
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./models:/app/models
+      - ./:/app/hostrepo
