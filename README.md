@@ -11,6 +11,26 @@ This project demonstrates **real-time multi-object detection** on live video str
 - Dockerized setup for reproducibility
 
 ---
+# System Design Report
+
+## 1. Design Choices
+Our design focuses on **modularity, scalability, and robustness**:
+- **Modularity**: Components (camera input, processing, storage, and UI) are decoupled, making it easy to maintain or upgrade.  
+- **Scalability**: The system supports variable frame rates and adaptive quality settings, allowing it to run on both high-end and low-end devices.  
+- **User Experience**: A simple, browser-based interface ensures accessibility across devices without requiring installations.  
+
+## 2. Low-Resource Mode
+When system resources (CPU, memory, or network bandwidth) are limited:
+- **Frame rate is reduced** dynamically to lower computational load.  
+- **Resolution is downscaled** (e.g., 720p → 480p) to conserve bandwidth.  
+- **Optional features** (like advanced filters or live analytics) are disabled to prioritize core functionality.  
+This ensures the application remains responsive even on entry-level hardware or poor network conditions.  
+
+## 3. Backpressure Policy
+To avoid system overload during high demand:
+- **Buffer limits**: Incoming data is queued with a maximum buffer size. Once full, new frames are dropped instead of overwhelming the system.  
+- **Adaptive throttling**: Processing speed is matched to system capacity, preventing uncontrolled memory growth.  
+- **Graceful degradation**: Instead of failing, the system reduces quality or skips frames to maintain stability.  
 
 ## 📦 Installation & Run
 
